@@ -1,7 +1,7 @@
 import "dotenv/config";
 import cors from "cors";
 import express, { Express, Request, Response } from "express";
-import checkoutSessions from "./stripe/checkout-sessions";
+import stripeRouter from "./routes/stripe-router";
 
 const port = process.env.PORT;
 
@@ -15,7 +15,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use("/stripe", checkoutSessions);
+app.use("/stripe", stripeRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
