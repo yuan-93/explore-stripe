@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run web-app:dev\" \"npm run server:dev\"",
+    "dev": "concurrently --kill-others \"npm run web-app:dev\" \"npm run server:dev\" \"npm run stripe:local-webhook\"",
     "build": "npm run build --workspaces",
     "server:dev": "npm run dev --workspace=server",
     "web-app:dev": "npm run dev --workspace=web-app",
+    "stripe:local-webhook": "stripe listen --forward-to localhost:5000/stripe/webhook",
+    "trigger:stripe": "stripe trigger payment_intent.succeeded",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "workspaces": [
