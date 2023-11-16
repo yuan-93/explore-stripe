@@ -1,0 +1,21 @@
+{
+  "name": "explore-stripe",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run web-app:dev\" \"npm run server:dev\"",
+    "build": "npm run build --workspaces",
+    "server:dev": "npm run dev --workspace=server",
+    "web-app:dev": "npm run dev --workspace=web-app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
