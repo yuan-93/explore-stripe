@@ -1,13 +1,9 @@
-import CheckoutView from "@/components/CheckoutView";
-import TopNavigationBar from "@/components/TopNavigationBar";
+import CheckoutOptionsView from "@/components/checkout-options-view";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <TopNavigationBar title="Explore Stripe" />
-      <div className="max-w-lg mx-auto my-6">
-        <CheckoutView />
-      </div>
-    </main>
+    <div className="mx-auto my-6 w-full grid grid-cols-12 gap-4 max-w-screen-lg">
+      <CheckoutOptionsView />
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 import { Lightbulb } from "lucide-react";
 import NextLink from "next/link";
-import Text from "@/components/Text";
+import Text from "@/components/text";
 
 export interface TopNavigationBarProps {
   title: string;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import TopNavigationBar from "@/components/top-navigation-bar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -16,7 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.className} antialiased`}>
-      <body>{children}</body>
+      <body>
+        <main className="min-h-screen">
+          <TopNavigationBar title="Explore Stripe" />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
