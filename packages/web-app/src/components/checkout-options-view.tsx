@@ -13,13 +13,13 @@ const cards = [
     title: "Striped-Hosted page",
     description:
       "Create products at stripe and checkout using redirection to stripe page",
-    link: "/checkout",
+    link: "/stripe-checkout",
   },
   {
     title: "Custom Payment flow",
     description:
       "Create products at own server and checkout using stripe elements",
-    link: "/custom-checkout",
+    link: "/stripe-custom-checkout",
   },
 ];
 

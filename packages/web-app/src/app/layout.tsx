@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TopNavigationBar from "@/components/top-navigation-bar";
+import Providers from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body>
         <main className="min-h-screen">
           <TopNavigationBar title="Explore Stripe" />
-          {children}
+          <Providers>{children}</Providers>
         </main>
       </body>
     </html>

@@ -23,17 +23,6 @@ export type PolymorphicComponentProp<
 > = PropsWithChildren<Props & AsProp<C>> &
   Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
 
-// export const Text = <C extends React.ElementType = "span">({
-//   as,
-//   color,
-//   children,
-//   // look here
-// }: PolymorphicComponentProp<C, TextProps>) => {
-//   const Component = as || "span";
-//   const style = color ? { style: { color } } : {};
-//   return <Component {...style}>{children}</Component>;
-// }
-
 // This is the type for the "ref" only
 type PolymorphicRef<C extends ElementType> = ComponentPropsWithRef<C>["ref"];
 
@@ -43,37 +32,13 @@ export type PolymorphicComponentPropWithRef<
   Props = {}
 > = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };
 
-/**
- * This is the updated component props using PolymorphicComponentPropWithRef
- */
-// type TextProps<C extends React.ElementType> = PolymorphicComponentPropWithRef<
-//   C,
-//   { color?: Rainbow | "black" }
-// >;
-
-/**
- * This is the type used in the type annotation for the component
- */
-// type TextComponent = <C extends React.ElementType = "span">(
-//   props: TextProps<C>
-// ) => React.ReactNode | null;
-
-// export const Text: TextComponent = React.forwardRef(
-//   <C extends React.ElementType = "span">(
-//     { as, color, children }: TextProps<C>,
-//     ref?: PolymorphicRef<C>
-//   ) => {
-//     const Component = as || "span";
-
-//     const style = color ? { style: { color } } : {};
-
-//     return (
-//       <Component {...style} ref={ref}>
-//         {children}
-//       </Component>
-//     );
-//   }
-// );
-
-// Reference
-// https://blog.logrocket.com/build-strongly-typed-polymorphic-components-react-typescript/
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "stripe-pricing-table": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}

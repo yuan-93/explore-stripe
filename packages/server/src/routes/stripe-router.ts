@@ -75,4 +75,14 @@ router.post("/webhook", express.json(), (request, response) => {
   response.status(200).end();
 });
 
+router.get("/sessions/:id", async (request, response) => {
+  try {
+    const sessionId = request.params.id;
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    return response.status(200).json(session);
+  } catch (error: any) {
+    return response.status(400).json(error.message);
+  }
+});
+
 export default router;
